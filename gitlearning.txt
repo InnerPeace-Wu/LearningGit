@@ -1,0 +1,19 @@
+1. mkdir dirname
+   cd dirname
+   pwd #show the current path
+   git init  #initialize
+2. git add file.txt #add several files the same time
+3. git commit -m"write a comment"
+4. git status #show the current status
+5. git diff #show the last time submit difference
+6. git log #logs of change've been made
+   git log --pretty=oneline  #simplify the output
+7. git reset --hard HEAD^  #HEAD^^ HEAD~100
+   git reset --hard ID  #cat readme.txt
+8. git reflog #show all the commit ID 
+9. git diff HEAD -- file.txt  #difference between work space and respositry
+10. git checkout -- file  #discarding the change
+    git reset HEAD file #same as the above
+11. git rm file #delete the file
+    git checkout -- file #undo delete
+12. ssh-keygen -t rsa -C "youremail@example.com"
