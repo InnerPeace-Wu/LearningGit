@@ -35,4 +35,4 @@
     git branch dev
     git checkout dev
 18. git branch #show all the branches
-
+19. cat filename #to show the file
