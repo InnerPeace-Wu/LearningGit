@@ -40,4 +40,5 @@
 21. git merge <name> #the merge a branch with master one
 22. git branch -d <name> #to delete a branch
 23. git log --graph --pretty=oneline --abbrev-commit #merge map
-24. 
+24. git merge --no-ff -m"write a commit" branchname #merge with no-ff AKA
+                                                    #fast forward
