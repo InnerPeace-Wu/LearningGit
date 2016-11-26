@@ -30,3 +30,9 @@
     git remote rename new_origin origin
     #easier way
     git remote set-url origin [updated link
+17. #switch to a new branch
+    git checkout -b dev#branch name
+    git branch dev
+    git checkout dev
+18. git branch #show all the branches
+
