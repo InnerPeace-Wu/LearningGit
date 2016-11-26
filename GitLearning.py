@@ -10,7 +10,7 @@
    git log --pretty=oneline  #simplify the output
 7. git reset --hard HEAD^  #HEAD^^ HEAD~100
    git reset --hard ID  #cat readme.txt
-8. git reflog #show all the commit ID 
+8. git reflog #show all the commit ID
 9. git diff HEAD -- file.txt  #difference between work space and respositry
 10. git checkout -- file  #discarding the change
     git reset HEAD file #same as the above
@@ -39,4 +39,5 @@
 20. git diff HEAD -- filename.txt #after add the file then check the diff
 21. git merge <name> #the merge a branch with master one
 22. git branch -d <name> #to delete a branch
-23. git log --graph --pretty=oneline --abbrev-commit #merge map 
+23. git log --graph --pretty=oneline --abbrev-commit #merge map
+24. 
