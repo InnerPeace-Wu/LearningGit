@@ -17,3 +17,16 @@
 11. git rm file #delete the file
     git checkout -- file #undo delete
 12. ssh-keygen -t rsa -C "youremail@example.com"
+    #copy file id_rsa.pub to SSH in github
+13. #Create a new repo with the same name with local dir
+    git remote add origin git@github.com:name/dirname.git
+14. git push -u origin master #parameter -u for the new repository
+    git push origin master
+15. #already got a repository online and clone it to local
+    git clone git@github.com:name/dirname.git
+16. #when changed ur repo name online, update it as below
+    git remote add new_origin [updated link
+    git remote rm origin
+    git remote rename new_origin origin
+    #easier way
+    git remote set-url origin [updated link
