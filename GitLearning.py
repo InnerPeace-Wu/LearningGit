@@ -72,3 +72,7 @@
     #add the type of files to ignore and add .gitignore to Git
     git add -f file.exe #force to add the file
     git check-ignore -v file.exe #to see if you got it .gitignore right
+31. git config --global alias.st status #change the alias to be shorter
+    #home .gitconfig apply to every repository of the current user
+FINAL:
+    build your GIT server and happy Hacking!
