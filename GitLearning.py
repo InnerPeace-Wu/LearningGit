@@ -63,3 +63,12 @@
     git tag -s <tagname> -m"comment" #add a signature to the tag
     git tag #show all the tag
     git show <tagname> #show all the info related to the tag
+29. git tag -d <tagname> #to delete a tag
+    git push origin <tagname> # push a tag to remote
+    git push origin --tags  #push all the tags which is unpushed
+    git push origin :refs/tags/<tagname> #delete a remote tag
+30. #git configuration
+    #create a file named .gitignore
+    #add the type of files to ignore and add .gitignore to Git
+    git add -f file.exe #force to add the file
+    git check-ignore -v file.exe #to see if you got it .gitignore right
