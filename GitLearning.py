@@ -48,3 +48,13 @@
                                       #stashes
     git stash pop   #same as above
     git stash list && git stash apply status@{0} #back to one of the stashes
+26. git brach -D feature-vulcan #to delete a branch without merging
+27. #MultiWork
+    git checkout -b dev origin/dev #clone dev from the origin server
+                                   #usually we only cloned the master
+    #when the remote dev conflict with the one we trying to pull
+    git branch --set-upstream dev origin/dev
+    git pull
+    #after fixed the possible merge conflic problems then commit and push
+    git push origin dev
+    git remote -v #show the remote info
