@@ -42,3 +42,9 @@
 23. git log --graph --pretty=oneline --abbrev-commit #merge map
 24. git merge --no-ff -m"write a commit" branchname #merge with no-ff AKA
                                                     #fast forward
+25. git stash #restore the current work space
+    git stash list #show all the  workspace stored
+    git stash apply && git stash drop #back to where we were and delete old
+                                      #stashes
+    git stash pop   #same as above
+    git stash list && git stash apply status@{0} #back to one of the stashes
