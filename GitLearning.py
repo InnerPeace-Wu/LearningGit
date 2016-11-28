@@ -37,7 +37,7 @@
 18. git branch #show all the branches
 19. cat filename #to show the file
 20. git diff HEAD -- filename.txt #after add the file then check the diff
-21. git merge <name> #the merge a branch with master one
+21. git merge <name> #to merge a branch with master one
 22. git branch -d <name> #to delete a branch
 23. git log --graph --pretty=oneline --abbrev-commit #show the merge map
 24. git merge --no-ff -m"write a commit" branchname #merge with no-ff AKA
