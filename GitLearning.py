@@ -76,3 +76,5 @@
     #home .gitconfig apply to every repository of the current user
 FINAL:
     build your GIT server and happy Hacking!
+Updates:
+32. git add . #add all the new files
