@@ -1,2 +1,2 @@
-# LearningGit
-Basic Git Pratice
+# LearningSkills
+Basic skills.
