@@ -28,8 +28,10 @@ def get_maximum_value(dataset):
 
     return 0
 def MinAndMax(i, j, MAX, MIN, dataset):
-    tmin = math.inf
-    tmax = -math.inf
+#    tmin = math.inf #for python 3.5
+#    tmax = -math.inf
+    tmin = float("inf")
+    tmax = -float("inf")
     for k in range(i, j):
         a = evalt(MAX[i][k], MAX[k+1][j], dataset[2*k+1])
         b = evalt(MAX[i][k], MIN[k+1][j], dataset[2*k+1])

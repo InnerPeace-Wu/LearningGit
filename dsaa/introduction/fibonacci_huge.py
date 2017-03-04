@@ -36,6 +36,7 @@ def get_fibonacci_huge_fast(n, m):
         return c
 
 if __name__ == '__main__':
+    '''
     while True:
         n = random.randint(1, 1000)
         m = random.randint(2, 1000)
@@ -48,9 +49,10 @@ if __name__ == '__main__':
             print(get_fibonacci_huge_naive(n, m))
             print(get_fibonacci_huge_fast(n, m))
             break
+    '''
     input = sys.stdin.read();
     n, m = map(int, input.split())
     #n = 239
     #m = 1000
-    print(get_fibonacci_huge_naive(n, m))
+    #print(get_fibonacci_huge_naive(n, m))
     print(get_fibonacci_huge_fast(n, m))

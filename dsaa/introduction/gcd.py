@@ -21,7 +21,7 @@ def gcd_fast(a, b):
     else:
         return gcd_fast(a % b, b)
 if __name__ == "__main__":
-
+    '''
     while True:
         a = random.randint(1, 1000)
         b = random.randint(1, 1000)
@@ -34,6 +34,7 @@ if __name__ == "__main__":
             print(gcd1)
             print(gcd2)
             break
+    '''
     input = sys.stdin.read()
     a, b = map(int, input.split())
-    print(gcd_naive(a, b))
+    print(gcd_fast(a, b))

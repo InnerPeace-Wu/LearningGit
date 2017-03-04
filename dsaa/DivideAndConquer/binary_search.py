@@ -2,10 +2,10 @@
 import sys
 
 def binary_search(a, x):
-    left, right = 0, len(a)
+    left, right = 0, len(a)-1
     # write your code here
-    while left < right:
-        mid = int((left + right) / 2)
+    while left <= right:
+        mid = (left + right) // 2
         if a[mid] == x:
             return mid
         elif a[mid] > x:

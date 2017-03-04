@@ -19,8 +19,9 @@ def gcd(a, b):
     else:
         return gcd(a % b, b)
 def lcm_fast(a, b):
-    return a*b/gcd(a, b)
+    return a*b // gcd(a, b)
 if __name__ == '__main__':
+    '''
     while True:
         a = random.randint(1, 1000)
         b = random.randint(1, 1000)
@@ -33,7 +34,10 @@ if __name__ == '__main__':
             print (r1)
             print (r2)
             break
+    '''
+    #print(lcm_fast(18, 35))
+    #print(lcm_fast(226553150, 1023473145))
     input = sys.stdin.read()
     a, b = map(int, input.split())
-    print(lcm_naive(a, b))
-
+    print(lcm_fast(a, b))
+    #print('%.f' % (lcm_fast(a, b)))

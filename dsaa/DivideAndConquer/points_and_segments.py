@@ -1,14 +1,19 @@
 # Uses python3
 import sys
+import random
 
 def fast_count_segments(starts, ends, points):
     cnt = [0] * len(points)
     #write your code here
-    starts = MergeSort(starts)
-    ends = MergeSort(ends)
-    for i in range(0, len(points)):
+    #starts = MergeSort(starts)
+    #ends = MergeSort(ends)
+    starts = sorted(starts)
+    ends = sorted(ends)
+#    print(starts, ends)
+    for i in range(len(points)):
         st = BinarySearch(starts, points[i], 1)
         end = BinarySearch(ends, points[i], 0)
+        #print(st, end)
         cnt[i] = st - end
     return cnt
 
@@ -23,14 +28,17 @@ def naive_count_segments(starts, ends, points):
 def BinarySearch(a, x, direction): #with direction = 1, work for the 'starts' and 0 for the 'ends'
     if len(a) == 0:
         return -1
-    left, right = 0, len(a)
+    left, right = 0, len(a)-1
     while left <= right:
+ #       print(left, right, x, a)
         ave = (left + right) // 2
         if x == a[ave]:
-            while x == a[ave]:
-                if direction:  ave += 1
-                else: ave -= 1
-            if direction: return ave - 1
+            while left - 1 < ave <= right:
+                if x == a[ave]:
+                    if direction:  ave += 1
+                    else: ave -= 1
+                else:break
+            if direction: return ave
             else: return ave + 1
         elif x < a[ave]:
             right = ave - 1
@@ -68,6 +76,37 @@ def Merge(a, b):
     return c
 
 if __name__ == '__main__':
+    '''
+    ###for test
+    num = 1000
+    Flag = 1
+    while Flag:
+        s = random.randint(1, num)
+        p = random.randint(1, num)
+        starts = []
+        ends = []
+        points = []
+        for i in range(s):
+            start = random.randint(-num, num)
+            dis = random.randint(1, num)
+            starts.append(start)
+            ends.append(start+dis)
+        for j in range(p):
+            point = random.randint(-num, num)
+            points.append(point)
+        cnt_naive = naive_count_segments(starts, ends, points)
+        cnt_fast = fast_count_segments(starts, ends, points)
+        cnt = 0
+
+        for cnt in range(p):
+            if cnt_fast[cnt] != cnt_naive[cnt]:
+                print(starts, ends, points)
+                print(cnt_naive, cnt_fast)
+                Flag = 0
+                break
+        print("ok")
+    ### test
+    '''
     input = sys.stdin.read()
     data = list(map(int, input.split()))
     n = data[0]
@@ -76,6 +115,7 @@ if __name__ == '__main__':
     ends   = data[3:2 * n + 2:2]
     points = data[2 * n + 2:]
     #use fast_count_segments
-    cnt = naive_count_segments(starts, ends, points)
+    #cnt = naive_count_segments(starts, ends, points)
+    cnt = fast_count_segments(starts, ends, points)
     for x in cnt:
         print(x, end=' ')

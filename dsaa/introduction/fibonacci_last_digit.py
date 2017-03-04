@@ -25,6 +25,7 @@ def get_fibonacci_last_digit_fast(n):
         previous, current = current % 10,  previous % 10 + current % 10
     return current % 10
 if __name__ == '__main__':
+    '''
     while True:
         n = random.randint(0, 10000)
         print (n)
@@ -36,6 +37,7 @@ if __name__ == '__main__':
             print(get_fibonacci_last_digit_fast(n))
             print(get_fibonacci_last_digit_naive(n))
             break
+    '''
     input = sys.stdin.read()
     n = int(input)
-    print(get_fibonacci_last_digit_naive(n))
+    print(get_fibonacci_last_digit_fast(n))

@@ -25,20 +25,7 @@ def lcs3(a, b, c):
     return lcsmat[-1][-1][-1]
 if __name__ == '__main__':
     '''
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
-    an = data[0]
-    data = data[1:]
-    a = data[:an]
-    data = data[an:]
-    bn = data[0]
-    data = data[1:]
-    b = data[:bn]
-    data = data[bn:]
-    cn = data[0]
-    data = data[1:]
-    c = data[:cn]
-    '''
+    ### test
     an = random.randint(30, 100)
     a =[]
     for i in range(an):
@@ -56,3 +43,19 @@ if __name__ == '__main__':
     end = time.time()
     print(result)
     print('the running time is %0.5f s' % (end-start))
+    ### test
+    '''
+    input = sys.stdin.read()
+    data = list(map(int, input.split()))
+    an = data[0]
+    data = data[1:]
+    a = data[:an]
+    data = data[an:]
+    bn = data[0]
+    data = data[1:]
+    b = data[:bn]
+    data = data[bn:]
+    cn = data[0]
+    data = data[1:]
+    c = data[:cn]
+    print(lcs3(a, b, c))

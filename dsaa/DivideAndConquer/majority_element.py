@@ -33,23 +33,26 @@ def getMajorityElement(a):
     candidate = -1
     count = 0
     for t in a:
-        if count == 0: candidate, count = t, 1
+        if count == 0:
+            candidate, count = t, 1
+            continue
         if t == candidate: count += 1
         else: count -= 1
     recount = 0
     for x in a:
         if x == candidate:
             recount += 1
-    if recount > len(a) / 2:
+    if recount > len(a) // 2 :
         return candidate
     return -1
 
 if __name__ == '__main__':
     input = sys.stdin.read()
+
     n, *a = list(map(int, input.split()))
-    print (get_majority_element(a, 0, n))
-    print (getMajorityElement(a))
-    if get_majority_element(a, 0, n) != -1:
+    #print (get_majority_element(a, 0, n))
+    #print (getMajorityElement(a))
+    if getMajorityElement(a) != -1:
         print(1)
     else:
         print(0)
