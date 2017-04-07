@@ -1,8 +1,8 @@
 # python3
 
 import sys, threading
-import Queue
-import time
+#Import Queue
+#import time
 
 sys.setrecursionlimit(10**7) # max depth of recursion
 threading.stack_size(2**27)  # new thread will get stack of such size
@@ -13,7 +13,9 @@ class Node:
                 self.children = []
         def addChild(self, child):
                 self.children.append(child)
+
 class TreeHeight:
+        '''
         def __init__(self, n, parent):
                 self.n = n
                 self.parent = parent
@@ -21,10 +23,10 @@ class TreeHeight:
         def read(self):
                 self.n = int(sys.stdin.readline())
                 self.parent = list(map(int, sys.stdin.readline().split()))
-        '''
+
         def compute_height(self):
                 # Replace this code with a faster implementation
-                st1 = time.time()
+                #st1 = time.time()
                 nodes=[Node(i) for i in range(self.n)]
                 root = -1
                 for ci in range(self.n):
@@ -33,19 +35,25 @@ class TreeHeight:
                                 root = ci
                         else:
                                 nodes[pi].addChild(nodes[ci])
-                q = Queue.Queue()
-                q.put(nodes[root])
+
+                #q = Queue.Queue()
+                q = []
+                #q.put(nodes[root])
+                q.append(nodes[root])
                 pc, cc, h = 0, 1, 0
-                while not q.empty():
-                        cnode = q.get()
+                #while not q.empty():
+                while len(q):
+                        #cnode = q.get()
+                        cnode = q.pop(0)
                         cc -= 1
                         while len(cnode.children) > 0:
                                 pc += 1
-                                q.put(cnode.children.pop())
+                                #q.put(cnode.children.pop())
+                                q.append(cnode.children.pop())
                         if cc == 0:
                                 h += 1
                                 cc, pc = pc, 0
-                st2 = time.time()
+                #st2 = time.time()
 
                 '''
                 st2 = time.time()
@@ -61,9 +69,11 @@ class TreeHeight:
                 st3 = time.time()
                 return maxHeight
                 '''
-                return (h, st1, st2)
+                #return (h, st1, st2)
+                return h
 
 def main():
+        '''
         for i in range(1, 25):
                 path = './tests/'
                 if i < 10:
@@ -83,8 +93,8 @@ def main():
                 else:
                         print(h1, an)
         '''
-  tree = TreeHeight()
-  tree.read()
-  print(tree.compute_height())
-        '''
+        tree = TreeHeight()
+        tree.read()
+        print(tree.compute_height())
+
 threading.Thread(target=main).start()

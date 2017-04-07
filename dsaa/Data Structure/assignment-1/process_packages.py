@@ -25,14 +25,16 @@ class Buffer:
             return Response(False, request.arrival_time)
         elif lenth == size:
             if self.finish_time_[0] <= request.arrival_time:
-                start_time = self.finish_time_[-1]
+                #start_time = self.finish_time_[-1]
+                start_time = max(request.arrival_time, self.finish_time_[-1])
                 self.finish_time_.append(start_time+request.process_time)
                 self.finish_time_.pop(0)
                 return Response(False,start_time)
             else:
                 return Response(True, -1)
         else:
-            start_time = self.finish_time_[-1]
+            #start_time = self.finish_time_[-1]
+            start_time = max(request.arrival_time, self.finish_time_[-1])
             self.finish_time_.append(start_time+request.process_time)
             return Response(False,start_time)
 
@@ -62,9 +64,11 @@ def PrintResponses(responses):
         print(response.start_time if not response.dropped else -1)
 
 if __name__ == "__main__":
+
+    '''
     ### Testing
     for p in range(1, 23):
-        path = './Programming-Assignment-1/network_packet_processing_simulation/tests/'
+        path = './tests/'
         if p < 10:
             path += '0' + str(p)
         else:
@@ -76,21 +80,29 @@ if __name__ == "__main__":
             responses = ProcessRequests(requests, buff)
         patha = path + '.a'
         with open(patha,"r") as fa:
-            ans = map(int, fa.readline().strip())
+            ans = map(int, fa.readlines())
+        ans = list(ans)
         results = []
         for res in responses:
             re = res.start_time if not res.dropped else -1
             results.append(re)
-        i = 0
-        for an in ans:
-            if results[i] == an:
-                print("%d, ok" % p)
-            else:
-                print("error, %d" % p)
-                break
-            i += 1
+        #i = 0
+
+        #for an in ans:
+        if results == ans:
+            print("%d, ok" % p)
+        else:
+            print(results)
+            print(ans)
+            print("error, %d" % p)
+            break
+        #i += 1
+        if p == 11:
+            print(results)
+            print(list(ans))
     print("all done")
     ### Testing
+    '''
 
     size, count = map(int, input().strip().split())
     requests = ReadRequests(count)
