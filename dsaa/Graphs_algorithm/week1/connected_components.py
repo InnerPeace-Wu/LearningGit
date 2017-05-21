@@ -4,13 +4,14 @@ import sys
 
 
 def number_of_components(adj):
-    result = 1
+    result = 0
     #write your code here
     if len(adj) <= 1:
         return len(adj)
     for i in range(len(adj)):
         if len(adj[i]) == 0:
             adj[i].append('t')
+            result += 1
         if adj[i][-1] != 't':
             explore(adj, i)
             result += 1
