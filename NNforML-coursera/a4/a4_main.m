@@ -1,6 +1,6 @@
 % This file was published on Wed Nov 14 20:48:30 2012, UTC.
 
-function a4_main(n_hid, lr_rbm, lr_classification, n_iterations)
+function vloss = a4_main(n_hid, lr_rbm, lr_classification, n_iterations)
 % first, train the rbm
     global report_calls_to_sample_bernoulli
     report_calls_to_sample_bernoulli = false;
@@ -33,6 +33,9 @@ function a4_main(n_hid, lr_rbm, lr_classification, n_iterations)
         log_class_prob = class_input - repmat(class_normalizer, [size(class_input, 1), 1]); % log of probability of each class. size: <number of classes, i.e. 10> by <number of data cases>
         error_rate = mean(double(argmax_over_rows(class_input) ~= argmax_over_rows(data.targets))); % scalar
         loss = -mean(sum(log_class_prob .* data.targets, 1)); % scalar. select the right log class probability using that sum; then take the mean over all data cases.
+        %if(strcmp(data_name, 'validation'))
+         % vloss = loss;
+        %end
         fprintf('For the %s data, the classification cross-entropy loss is %f, and the classification error rate (i.e. the misclassification rate) is %f\n', data_name, loss, error_rate);
     end
     report_calls_to_sample_bernoulli = true;
