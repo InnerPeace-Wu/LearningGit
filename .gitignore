@@ -1,2 +1,5 @@
 #comlain
 test.txt
+*.png
+*.zip
+.idea
