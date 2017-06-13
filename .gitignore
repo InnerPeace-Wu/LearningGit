@@ -3,3 +3,4 @@ test.txt
 *.png
 *.zip
 .idea
+*.so
